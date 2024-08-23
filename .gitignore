@@ -1,0 +1,4 @@
+main.c
+.vscode/*
+.DS_Store
+bin/
