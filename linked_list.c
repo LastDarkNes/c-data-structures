@@ -156,7 +156,7 @@ void extend_list(List * list_to_extend, List* extending_list){
         current_item = current_item->next;
     }
 
-    while (extending_list_current_item->next != NULL)
+    while (extending_list_current_item != NULL)
     {
         ListNode * new_item = (ListNode *) malloc(sizeof(ListNode));
         new_item->next = NULL;
@@ -164,6 +164,7 @@ void extend_list(List * list_to_extend, List* extending_list){
         current_item->next = new_item;
 
         extending_list_current_item = extending_list_current_item->next;
+        current_item = current_item->next;
     }
     
 }
