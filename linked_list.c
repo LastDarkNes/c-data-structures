@@ -21,6 +21,7 @@ int get_list_item(List *, int);
 void add_list_item(List *, int);
 int remove_list_item(List *, int);
 void extend_list(List *, List*);
+void update_list_item(List *, int, int);
 
 List * fill_list(List * new_list, int array[], int elements_count){
     if (new_list->head != NULL)
@@ -106,6 +107,26 @@ void add_list_item(List * list, int value){
     current_item->next = new_node;
 }
 
+void update_list_item(List * list, int index, int value){
+    ListNode * current_item = list->head;
+    int current_index = 0;
+
+    while (current_index != index)
+    {
+        if (current_item == NULL)
+        {
+            printf("List index out of range\n");
+            exit(1);
+        }
+        
+        current_item = current_item->next;
+        current_index++;
+    }
+    
+    current_item->value = value;
+    
+}
+
 int remove_list_item(List * list, int index){
     ListNode * previous_item = NULL;
     ListNode * current_item = list->head;
@@ -145,7 +166,6 @@ int remove_list_item(List * list, int index){
 
     return current_item_value;
 }
-
 
 void extend_list(List * list_to_extend, List* extending_list){
     ListNode * current_item = list_to_extend->head;
