@@ -25,7 +25,7 @@ void extend_list(List *, List*);
 List * fill_list(List * new_list, int array[], int elements_count){
     if (new_list->head != NULL)
     {
-        printf("\nList is already created\n");
+        printf("List is already created\n");
         exit(1);
     }
     
